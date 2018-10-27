@@ -18,27 +18,28 @@ app.use(cors());
 
 var db = monk('mongodb://localhost:27017/kusaridb');
 // view engine setup app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade'); Serve static files from the React app
+app.set('view engine', 'jade'); //Serve static files from the React app
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(function (req, res, next) {
   req.db = db;
   next();
 });
-
 // The "catchall" handler: for any request that doesn't match one above, send
 // back React's index.html file.
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
+  console.log(req)
+  console.log(req.app.get('port'))
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
+});*/
 
-//app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/flumodel', fluRouter);
 app.use('/api/statesupply', supplyRouter);

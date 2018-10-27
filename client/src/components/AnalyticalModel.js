@@ -24,7 +24,10 @@ class AnalyticalModel extends React.Component {
         }
     }
     componentDidMount() {
-        fetch("http://localhost:3100/api/fluModel")
+        const loc = window.location.hostname === "localhost"
+            ? "http://localhost:5000"
+            : ""
+        fetch(`${loc}/api/fluModel`)
             .then(res => res.json())
             .then(res => {
                 const seasons = Object.keys(groupBy(res.fluData, "SEASON"));
