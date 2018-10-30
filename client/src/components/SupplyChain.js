@@ -2,7 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import {groupBy} from 'lodash';
+import {groupBy, sortBy, reverse} from 'lodash';
 import {PageHeader, defaultMapConfig} from '../utils/Common';
 const HC_map = require('highcharts/modules/map')(Highcharts);
 
@@ -12,6 +12,7 @@ class SupplyChain extends React.Component {
         stateData: [],
         usStates: [],
         usState: "all",
+        activity: "0",
         dataOptions: [
             "6_months_17_years", "6_months_4_years", "5-12_years", "13-17_years"
         ],
@@ -49,24 +50,40 @@ class SupplyChain extends React.Component {
         });
 
     }
+    handleSort = (e) => {
+        this.setState({
+            activity: e.target.value
+        }, () => {
+            this.drawMap()
+        })
+    }
     drawMap = () => {
         let mapData = [];
-        const {stateData, dataOption} = this.state;
+        let {stateData, dataOption} = this.state;
         for (let i in stateData) {
-            mapData.push({code: stateData[i].POSTALCODE, value: stateData[i][dataOption]
+            mapData.push({state: stateData[i].States, code: stateData[i].POSTALCODE, value: stateData[i][dataOption]
             })
+        }
+        if (this.state.usState != "all") {
+            mapData = mapData.filter(item => item.state === this.state.usState)
+        }
+        if (this.state.activity === "1") {
+            mapData = sortBy(mapData, ['value']).splice(1, 10);
+        }
+        if (this.state.activity === "2") {
+            mapData = reverse(sortBy(mapData, ['value'])).splice(1, 10);
         }
         const config = {
             chart: {
                 map: maps,
-                borderWidth: 1
+                borderWidth: 0
             },
             title: {
-                text: 'State Supply'
+                text: 'Vaccination Rates'
             },
             exporting: {
                 sourceWidth: 600,
-                sourceHeight: 500
+                sourceHeight: 600
             },
             legend: {
                 layout: 'horizontal',
@@ -82,29 +99,26 @@ class SupplyChain extends React.Component {
             colorAxis: {
                 min: 1,
                 type: 'logarithmic',
-                minColor: '#EEEEFF',
-                maxColor: '#000022',
+                minColor: '#DDDDDD',
+                maxColor: '#BAF480',
                 stops: [
                     [
-                        0, '#003f5c'
+                        0, '#492C3C'
                     ],
                     [
-                        0.25, '#58508d'
+                        0.2, '#55455E'
                     ],
                     [
-                        0.50, '#bc5090'
+                        0.5, '#63637F'
                     ],
                     [
-                        0.75, '#ff6361'
+                        0.7, '#448298'
                     ],
-                    [1, '#ffa600']
+                    [1, '#BAF480']
                 ]
             },
             series: [
                 {
-                    animation: {
-                        duration: 1000
-                    },
                     data: mapData,
                     joinBy: [
                         'postal-code', 'code'
@@ -142,16 +156,36 @@ class SupplyChain extends React.Component {
                                         .map(s => <option key={s} value={s}>{s}</option>)}
                                 </select>
                             </div>
+                            <div className="col col-md-5">
+                                <div className="row">
+                                    <div className="col col-md-3 pr-0 pt-2">Age Group</div>
+                                    <div className="col col-md-6 pl-0">
+                                        <select
+                                            className="form-control"
+                                            value={this.state.dataOption}
+                                            onChange={this.handleDataOption}>
+                                            {this
+                                                .state
+                                                .dataOptions
+                                                .map(s => <option key={s} value={s}>{s}</option>)}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="col col-md-4">
-                                <select
-                                    className="form-control"
-                                    value={this.state.dataOption}
-                                    onChange={this.handleDataOption}>
-                                    {this
-                                        .state
-                                        .dataOptions
-                                        .map(s => <option key={s} value={s}>{s}</option>)}
-                                </select>
+                                <div className="row">
+                                    <div className="col col-md-2 pr-0 pt-2">Sort</div>
+                                    <div className="col col-md-10 pl-0">
+                                        <select
+                                            className="form-control"
+                                            value={this.state.activity}
+                                            onChange={this.handleSort}>
+                                            <option value="0">All</option>
+                                            <option value="1">States with Low Vaccination Rates</option>
+                                            <option value="2">States with risk of High Activity</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div

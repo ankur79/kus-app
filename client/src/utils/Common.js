@@ -15,11 +15,11 @@ export const defaultMapConfig = {
         borderWidth: 1
     },
     title: {
-        text: 'State Supply'
+        text: 'Vaccination Rates'
     },
     exporting: {
         sourceWidth: 600,
-        sourceHeight: 500
+        sourceHeight: 600
     },
     legend: {
         layout: 'horizontal',
@@ -35,29 +35,26 @@ export const defaultMapConfig = {
     colorAxis: {
         min: 1,
         type: 'logarithmic',
-        minColor: '#EEEEFF',
-        maxColor: '#000022',
+        minColor: '#DDDDDD',
+        maxColor: '#BAF480',
         stops: [
             [
-                0, '#003f5c'
+                0, '#492C3C'
             ],
             [
-                0.25, '#58508d'
+                0.2, '#55455E'
             ],
             [
-                0.50, '#bc5090'
+                0.5, '#63637F'
             ],
             [
-                0.75, '#ff6361'
+                0.7, '#448298'
             ],
-            [1, '#ffa600']
+            [1, '#BAF480']
         ]
     },
     series: [
         {
-            animation: {
-                duration: 1000
-            },
             data: [
                 {
                     "code": "AL",
