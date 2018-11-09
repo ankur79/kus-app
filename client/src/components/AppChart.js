@@ -8,7 +8,7 @@ class AppChart extends React.Component {
     const config = {
 
       title: {
-        text: 'Flu Forecast'
+        text: this.props.chartTitle
       },
 
       xAxis: {

@@ -136,7 +136,10 @@ class AnalyticalModel extends React.Component {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <AppChart categories={this.state.categories} series={this.state.series}/>
+                            <AppChart
+                                chartTitle="Flu Forecast"
+                                categories={this.state.categories}
+                                series={this.state.series}/>
                         </div>
                     </div>
                 </div>

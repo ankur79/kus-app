@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fluRouter = require('./routes/flumodel');
 var supplyRouter = require('./routes/statesupply');
+var fluActivityRouter = require('./routes/fluactivity');
 
 var app = express();
 app.use(cors());
@@ -43,6 +44,7 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/flumodel', fluRouter);
 app.use('/api/statesupply', supplyRouter);
+app.use('/api/fluactivity', fluActivityRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

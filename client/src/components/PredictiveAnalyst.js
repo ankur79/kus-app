@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route, NavLink} from 'react-router-dom';
 import {PageHeader} from '../utils/Common';
 import AnalyticalModel from '../components/AnalyticalModel'
-import DiseaseModel from '../components/DiseaseModel'
+import FluActivityModel from '../components/FluActivityModel'
 
 class PredictiveAnalyst extends Component {
     constructor(props) {
@@ -40,11 +40,11 @@ class PredictiveAnalyst extends Component {
                                 <NavLink
                                     activeClassName="active"
                                     className="nav-link"
-                                    to={`${match.path}/disease-model`}>Flu Disease Activity Predictive Model</NavLink>
+                                    to={`${match.path}/flu-activity`}>Flu Disease Activity Predictive Model</NavLink>
                             </li>
                         </ul>
                         <Route exact path={`${match.path}`} component={AnalyticalModel}/>
-                        <Route path={`${match.path}/disease-model`} component={DiseaseModel}/>
+                        <Route path={`${match.path}/flu-activity`} component={FluActivityModel}/>
                     </div>
                 </div>
             </React.Fragment>
