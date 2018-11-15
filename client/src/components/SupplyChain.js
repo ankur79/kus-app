@@ -140,7 +140,6 @@ class SupplyChain extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <PageHeader header="Supply Chain Analytics"/>
                 <div className="row placeholders">
                     <div className="col-xs-12 col-sm-12 placeholder">
                         <div className="row">

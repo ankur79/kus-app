@@ -3,9 +3,11 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import AppNav from "./AppNav";
 import SideNav from "./SideNav";
 import "../styles/App.css";
+import Insights from './Insights';
 import PredictiveAnalyst from './PredictiveAnalyst';
-import MarketingAnalyst from './MarketingAnalyst';
+import MarketingAnalytics from './MarketingAnalytics';
 import SupplyChain from './SupplyChain';
+import FluSeasons from './FluSeasons';
 
 class App extends Component {
   render() {
@@ -14,26 +16,19 @@ class App extends Component {
         <AppNav/>
         <BrowserRouter>
           <SideNav>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Insights}/>
+            <Route path="/flu-seasons" component={FluSeasons}/>
             <Route
               path="/predictive-analyst"
               pageTitle="Predictive Analyst"
               component={PredictiveAnalyst}/>
-            <Route path="/marketing-analyst" component={MarketingAnalyst}/>
-            <Route path="/supply-chain" component={SupplyChain}/>
+            <Route path="/marketing-analyst" component={MarketingAnalytics}/>
+            <Route path="/supply-chain" render={() => <div>Data Not available</div>}/>
           </SideNav>
         </BrowserRouter>
       </React.Fragment>
     );
   }
 }
-
-const Home = () => {
-  return (
-    <div>
-      This is Home
-    </div>
-  )
-};
 
 export default App;

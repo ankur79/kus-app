@@ -46,7 +46,7 @@ ul.flex-column.nav a {
   color: #007bff;
 }
 .sidebar .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #333;
 }
 .sub-header {
@@ -130,4 +130,8 @@ main {
     padding-right: 40px;
     padding-left: 40px;
   }
+}
+.table-sm th,
+.table-sm td:first-child {
+  width: 50%;
 }

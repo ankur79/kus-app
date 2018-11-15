@@ -10,7 +10,9 @@ class AppChart extends React.Component {
       title: {
         text: this.props.chartTitle
       },
-
+      chart: {
+        zoomType: 'x'
+      },
       xAxis: {
         categories: this.props.categories
       },

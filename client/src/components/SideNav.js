@@ -14,7 +14,11 @@ class SideNav extends React.Component {
                             <Nav className="flex-column">
                                 <li>
                                     <NavLink exact to="/" activeClassName="active" className="nav-link">
-                                        <i className="fa fa-home"></i>{" "}Home</NavLink>
+                                        <i className="fa fa-tachometer"></i>{" "}Insights</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink exact to="/flu-seasons" className="nav-link" activeClassName="active">
+                                        <i className="fa fa-thermometer-empty"></i>{" "}Flu Seasons</NavLink>
                                 </li>
                                 <li>
                                     <NavLink
@@ -35,6 +39,14 @@ class SideNav extends React.Component {
                                 <li>
                                     <NavLink exact to="/supply-chain" className="nav-link" activeClassName="active">
                                         <i className="fa fa-truck"></i>{" "}Supply Chain Analytics</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        exact
+                                        to="/supply-dashboard"
+                                        className="nav-link"
+                                        activeClassName="active">
+                                        <i className="fa fa-th"></i>{" "}Supply Chain Dashboard</NavLink>
                                 </li>
                             </Nav>
                         </div>

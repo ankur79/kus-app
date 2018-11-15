@@ -34,7 +34,7 @@ class PredictiveAnalyst extends Component {
                                     exact
                                     activeClassName="active"
                                     className="nav-link "
-                                    to={`${match.path}`}>Analytical Model Optimization</NavLink>
+                                    to={`${match.path}`}>Analytical Model Optimization Results</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink

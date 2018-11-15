@@ -35,7 +35,7 @@ class MarketingAnalyst extends Component {
                     </Modal>
                 </div>
                 <h1 className="page-header">
-                    Marketing Analyst
+                    Marketing Analytics
                 </h1>
                 <div className="row placeholders">
                     <div className="col-xs-12 col-sm-12 placeholder">
