@@ -8,15 +8,15 @@ import mi from "../dataSet/michigan.json";
 import michigan from "../dataSet/michigan.json";
 import county from "../dataSet/country.json";
 import stores from "../dataSet/stores.json";
-import Select from 'react-select'
-
+import Select from "react-select";
+import $ from 'jquery';
 import options from "../dataSet/us-states.json";
 var info = L.control();
 export default class MapView extends Component {
   state = {
-    lat: 37.8,
-    lng: -96,
-    zoom: 4,
+    lat: 44.3,
+    lng: -80.6,
+    zoom: 6,
     data: [],
     stateData: [],
     defaultView: "country",
@@ -24,31 +24,34 @@ export default class MapView extends Component {
     show: false
   };
   componentDidMount() {
-    this.addCountryMap();
-    //this.addCountyMap();
+    //this.addCountryMap(); this.addCountyMap();
+    this.addStateMap('michigan');
     this.addTileLayer();
   }
 
-  getColor(d) {
-    return d > 1000
+  getColor(d, area) {
+    const times = area != "state"
+      ? 15
+      : 1;
+    return d > 1000 * times
       ? "#800026"
-      : d > 500
+      : d > 500 * times
         ? "#BD0026"
-        : d > 200
+        : d > 200 * times
           ? "#E31A1C"
-          : d > 100
+          : d > 100 * times
             ? "#FC4E2A"
-            : d > 50
+            : d > 50 * times
               ? "#FD8D3C"
-              : d > 20
+              : d > 20 * times
                 ? "#FEB24C"
-                : d > 10
+                : d > 10 * times
                   ? "#FED976"
-                  : "#FFEDA0";
+                  : "#DDDDDD";
   }
-  style(feature) {
+  style(feature, area = "state") {
     return {
-      fillColor: this.getColor(feature.properties.density),
+      fillColor: this.getColor(feature.properties.density, area),
       weight: 2,
       opacity: 1,
       color: "white",
@@ -59,7 +62,7 @@ export default class MapView extends Component {
   countyStyle(feature) {
     return {weight: 1, opacity: 1, color: "black", dashArray: "2", fillOpacity: 0.3};
   }
-  highlightFeature(feature, layer) {
+  highlightFeature(feature, layer, area) {
     //var layer = e.target;
     this
       .refs
@@ -68,15 +71,16 @@ export default class MapView extends Component {
       .eachLayer(layer => {
         //console.log(layer);
       });
-    layer.setStyle({weight: 5, color: "#666", dashArray: "", fillOpacity: 0.7});
-    info.update(layer.feature.properties);
+    layer.setStyle({weight: 2, color: "#666", dashArray: "", fillOpacity: 0.7});
+    //console.log(layer.feature)
+    info.update(layer.feature.properties, area);
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
       layer.bringToFront();
     }
   }
-  resetHighlight(feature, layer) {
+  resetHighlight(feature, layer, area) {
     layer.setStyle({weight: 2, opacity: 1, color: "white", dashArray: "3", fillOpacity: 0.7});
-    info.update();
+    info.update(layer.feature.properties, area);
     //geojson.resetStyle(e.target);
   }
   addCountryMap() {
@@ -85,22 +89,54 @@ export default class MapView extends Component {
       style: feature => this.style(feature)
     }).addTo(this.refs.map.leafletElement);
     this.infoControl();
-    this.displayLegend();
+    this.displayLegend("state");
   }
   addCountyMap() {
     //L.geoJSON(uscounties.features).addTo(this.refs.map.leafletElement);
   }
   addStateMap(stateName) {
-    const _stateName = stateName.toLowerCase();
-    console.log(_stateName)
-    L.geoJSON(michigan.features, {
-      onEachFeature: (feature, layer) => this.onEachStateFeature(feature, layer)
+    let updateState = [];
+    //this.displayReset()
+    const loc = window.location.hostname === "localhost"
+      ? "http://localhost:5000"
+      : ""
+    fetch(`${loc}/api/countyPop`)
+      .then(res => res.json())
+      .then(res => {
+        let countyPop = res.population;
+        let state = michigan.features;
+        console.log(countyPop)
+        for (let i in state) {
+          const p = countyPop
+            .filter(item => item.County === state[i].properties.name)
+            .map(item => item.Population);
+          const pop = p[0] != undefined
+            ? this.convertToNum(p[0])
+            : 0;
+          state[i].properties.density = pop;
+          updateState.push(state[i]);
+        }
+        this.updatedStateFeatures(updateState);
+        this.infoControl();
+        //$(".state").css("display", "none")
+        this.displayLegend("county");
+      })
+      .catch(error => console.error('Error:', error));
+
+  }
+  convertToNum(str) {
+    var n = str
+      .split(",")
+      .map(Number);
+    return parseInt(n.reduce((a, b) => a + b, ''));
+  }
+  updatedStateFeatures(data) {
+    console.log(data)
+    L.geoJSON(data, {
+      onEachFeature: (feature, layer) => this.onEachStateFeature(feature, layer),
+      style: feature => this.style(feature, "county")
     }).addTo(this.refs.map.leafletElement);
     this.addTileLayer();
-    let crumbs = this.state.crumbs;
-    crumbs.push("Michigan");
-    this.setState({crumbs: crumbs});
-    this.buildCrumbs();
   }
   markerIcon(content, latlng) {
     return L.divIcon({className: "my-div-icon", html: String(content)});
@@ -185,26 +221,34 @@ export default class MapView extends Component {
       this.addStateMap(feature.properties.name);
       this.setState({defaultView: "state"});
     }
+    info.update(feature, "county");
   }
   onEachFeature(feature, layer) {
-    layer.on({
-      mouseover: this
-        .highlightFeature
-        .bind(this, feature, layer),
-      mouseout: this
-        .resetHighlight
-        .bind(this, feature, layer),
-      click: this
-        .zoomToFeature
-        .bind(this, feature, layer)
-    });
+    if (feature.properties.density != 0) {
+      layer.on({
+        mouseover: this
+          .highlightFeature
+          .bind(this, feature, layer, "state"),
+        mouseout: this
+          .resetHighlight
+          .bind(this, feature, layer, "state"),
+        click: this
+          .zoomToFeature
+          .bind(this, feature, layer, "state")
+      });
+    }
   }
   onEachStateFeature(feature, layer) {
-    layer.on({
-      click: this
-        .zoomToFeature
-        .bind(this, feature, layer)
-    });
+    if (feature.properties.density != 0) {
+      layer.on({
+        mouseover: this
+          .highlightFeature
+          .bind(this, feature, layer, "county"),
+        mouseout: this
+          .resetHighlight
+          .bind(this, feature, layer, "county")
+      });
+    }
   }
   addTileLayer() {
     L
@@ -236,39 +280,55 @@ export default class MapView extends Component {
       return this._div;
     };
 
+    const v = this.state.defaultView;
     // method that we will use to update the control based on feature properties
     // passed
-    info.update = function (props) {
-      this._div.innerHTML = "<h4>US Flu Data</h4>" + (props
-        ? "<b>" + props.name + "</b><br />" + props.density + " flu cases"
-        : "Hover over a state");
-    };
+    info.update = function (props, area = "state") {
+      console.log(props)
+      let header = area === "state" && v === "country"
+        ? "<h4>Michigan Population Data by County</h4>"
+        : "<h4>Michigan Population Data by County</h4>"
+      this._div.innerHTML = header + (props
+        ? "<b>" + props.name + "</b><br />" + props.density + " population"
+        : `Hover over a ${area}`);
+    }
 
     info.addTo(this.refs.map.leafletElement);
   }
-  displayLegend() {
+  displayReset(area = "state") {
+    var legend = L.control({position: "topright"});
+    var div = L
+      .DomUtil
+      .create("div", "reset_ntm")
+    div.innerHTML += '<button>Reset </button>'
+    return div;
+  }
+  displayLegend(area) {
+    const times = area != "state"
+      ? 15
+      : 1;
+    const cls = "info legend " + area
     var legend = L.control({position: "bottomright"});
-
     legend.onAdd = () => {
       var div = L
           .DomUtil
-          .create("div", "info legend"),
+          .create("div", cls),
         grades = [
-          0,
-          10,
-          20,
-          50,
-          100,
-          200,
-          500,
-          1000
+          0 * times,
+          10 * times,
+          20 * times,
+          50 * times,
+          100 * times,
+          200 * times,
+          500 * times,
+          1000 * times
         ],
         labels = [];
 
       // loop through our density intervals and generate a label with a colored square
       // for each interval
       for (var i = 0; i < grades.length; i++) {
-        div.innerHTML += '<i style="background:' + this.getColor(grades[i] + 1) + '"></i> ' + grades[i] + (grades[i + 1]
+        div.innerHTML += '<i style="background:' + this.getColor(grades[i] + 1, area) + '"></i> ' + grades[i] + (grades[i + 1]
           ? "&ndash;" + grades[i + 1] + "<br>"
           : "+");
       }
@@ -282,20 +342,8 @@ export default class MapView extends Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <React.Fragment>
-        <div
-          style={{
-          position: "relative",
-          marginBottom: 20,
-          zIndex: 5000,
-          width: "50%"
-        }}>
-          <Select
-            className="basic-single"
-            options={options}
-            onChange={opt => this.addStateMap(opt.label)}/>
-        </div>
         <div>
-          <Map center={position} zoom={this.state.zoom} ref="map"/>
+          <Map center={position} zoom={this.state.zoom} zoomControl={false} ref="map"/>
         </div>
       </React.Fragment>
     );

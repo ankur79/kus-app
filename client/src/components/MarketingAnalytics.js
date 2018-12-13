@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route, NavLink} from 'react-router-dom';
 import {PageHeader} from '../utils/Common';
 import SupplyChain from './SupplyChain';
-
+import CountyChart from './CountyChart';
+import StateChart from './StateChart';
 class MarketingAnalytics extends Component {
     constructor(props) {
         super(props);
@@ -41,6 +42,18 @@ class MarketingAnalytics extends Component {
                                     className="nav-link"
                                     to={`${match.path}/mkt-insights`}>Marketing Insights</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink
+                                    activeClassName="active"
+                                    className="nav-link"
+                                    to={`${match.path}/county-view`}>County View</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink
+                                    activeClassName="active"
+                                    className="nav-link"
+                                    to={`${match.path}/zip-view`}>Zip Code View</NavLink>
+                            </li>
                         </ul>
                         <Route
                             exact
@@ -48,6 +61,8 @@ class MarketingAnalytics extends Component {
                             render={() => <div>Data Not available</div>}/>
 
                         <Route path={`${match.path}/mkt-insights`} component={SupplyChain}/>
+                        <Route exact path={`${match.path}/county-view`} component={CountyChart}/>
+                        <Route exact path={`${match.path}/zip-view`} component={StateChart}/>
 
                     </div>
                 </div>

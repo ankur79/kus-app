@@ -11,6 +11,7 @@ import FluSeasons from './FluSeasons';
 
 class App extends Component {
   render() {
+    const hash = "/#"
     return (
       <React.Fragment>
         <AppNav/>
