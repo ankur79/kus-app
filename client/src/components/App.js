@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {BrowserRouter, Route} from 'react-router-dom';
+import {HashRouter, Route} from 'react-router-dom';
 import AppNav from "./AppNav";
 import SideNav from "./SideNav";
 import "../styles/App.css";
@@ -14,8 +14,8 @@ class App extends Component {
     const hash = "/#"
     return (
       <React.Fragment>
-        <AppNav/>
-        <BrowserRouter>
+        {/*<AppNav/>*/}
+        <HashRouter>
           <SideNav>
             <Route exact path="/" component={Insights}/>
             <Route path="/flu-seasons" component={FluSeasons}/>
@@ -26,7 +26,7 @@ class App extends Component {
             <Route path="/marketing-analyst" component={MarketingAnalytics}/>
             <Route path="/supply-chain" render={() => <div>Data Not available</div>}/>
           </SideNav>
-        </BrowserRouter>
+        </HashRouter>
       </React.Fragment>
     );
   }

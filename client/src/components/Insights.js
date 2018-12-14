@@ -24,7 +24,6 @@ class Insights extends React.Component {
             .catch(error => console.error('Error:', error))
     }
     render() {
-        console.log(this.state.data)
         return (
             <React.Fragment>
                 <PageHeader header="Insights"/>
@@ -36,7 +35,7 @@ class Insights extends React.Component {
                                 .tabNames
                                 .map((item) => {
                                     return (
-                                        <div>
+                                        <div className="insight-tab">
                                             <h5>{item}</h5>
                                             <table className="table table-sm table-striped">
                                                 <tbody>
