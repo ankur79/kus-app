@@ -91,7 +91,7 @@ class AnalyticalModel extends React.Component {
         const {model, seasons} = this.state;
         return (
             <div className="row placeholders">
-                <div className="col-xs-12 col-sm-12 placeholder">
+                <div className="col-xs-12 col-sm-12 placeholder insight-tab">
                     <div className="row">
                         <div className="col col-md-1">
                             <select className="form-control">

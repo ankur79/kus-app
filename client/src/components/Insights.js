@@ -28,7 +28,7 @@ class Insights extends React.Component {
             <React.Fragment>
                 <PageHeader header="Insights"/>
                 <div className="row placeholders">
-                    <div className="col-xs-12 col-sm-12 placeholder">
+                    <div className="col-xs-12 col-sm-12 placeholder ">
                         {this.state.tabNames.length > 0
                             ? this
                                 .state

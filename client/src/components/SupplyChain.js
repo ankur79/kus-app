@@ -141,7 +141,7 @@ class SupplyChain extends React.Component {
         return (
             <React.Fragment>
                 <div className="row placeholders">
-                    <div className="col-xs-12 col-sm-12 placeholder">
+                    <div className="col-xs-12 col-sm-12 placeholder insight-tab">
                         <div className="row">
                             <div className="col col-md-2">
                                 <select

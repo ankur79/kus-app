@@ -26,7 +26,7 @@ class StateChart extends Component {
         return (
             <React.Fragment>
                 <div class="row placeholders">
-                    <div class="col-xs-12 col-sm-12 placeholder">
+                    <div class="col-xs-12 col-sm-12 placeholder insight-tab">
                         <div className="leaflet-container">
                             <HeatMapView
                                 handleShow={modalContent => this.handleShow(modalContent)}

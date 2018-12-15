@@ -38,7 +38,7 @@ class MarketingAnalyst extends Component {
                     Marketing Analytics
                 </h1>
                 <div className="row placeholders">
-                    <div className="col-xs-12 col-sm-12 placeholder">
+                    <div className="col-xs-12 col-sm-12 placeholder insight-tab">
                         <h4
                             style={{
                             textAlign: "left"

@@ -28,7 +28,7 @@ class MarketingAnalytics extends Component {
                 <PageHeader header="Marketing Analytics"/>
                 <div className="row placeholders">
                     <div className="col-xs-12 col-sm-12 placeholder">
-                        <ul className="nav nav-pills mb-3">
+                        <ul className="nav nav-pills">
                             <li className="nav-item">
                                 <NavLink
                                     exact
