@@ -4,6 +4,7 @@ import {PageHeader} from '../utils/Common';
 import SupplyChain from './SupplyChain';
 import CountyChart from './CountyChart';
 import StateChart from './StateChart';
+import FluTrendChart from './FluTrendChart';
 class MarketingAnalytics extends Component {
     constructor(props) {
         super(props);
@@ -54,6 +55,12 @@ class MarketingAnalytics extends Component {
                                     className="nav-link"
                                     to={`${match.path}/zip-view`}>Zip Code View</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink
+                                    activeClassName="active"
+                                    className="nav-link"
+                                    to={`${match.path}/flu-trend`}>Flu Trend</NavLink>
+                            </li>
                         </ul>
                         <Route
                             exact
@@ -63,6 +70,7 @@ class MarketingAnalytics extends Component {
                         <Route path={`${match.path}/mkt-insights`} component={SupplyChain}/>
                         <Route exact path={`${match.path}/county-view`} component={CountyChart}/>
                         <Route exact path={`${match.path}/zip-view`} component={StateChart}/>
+                        <Route exact path={`${match.path}/flu-trend`} component={FluTrendChart}/>
 
                     </div>
                 </div>

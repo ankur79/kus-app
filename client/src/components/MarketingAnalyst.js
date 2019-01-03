@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Modal} from 'reactstrap';
-import MapView from './MapView';
+import StoreMapView from './StoreMapView';
 import ModalContent from './ModalContent';
 
+import {PageHeader} from '../utils/Common';
 class MarketingAnalyst extends Component {
     state = {
         crumbsList: "USA",
@@ -34,19 +35,12 @@ class MarketingAnalyst extends Component {
                         <ModalContent contentType={this.state.modalContent}/>
                     </Modal>
                 </div>
-                <h1 className="page-header">
-                    Marketing Analytics
-                </h1>
+                <PageHeader header="Supply Chain Analytics"/>
                 <div className="row placeholders">
                     <div className="col-xs-12 col-sm-12 placeholder insight-tab">
-                        <h4
-                            style={{
-                            textAlign: "left"
-                        }}
-                            className="sub-header">{this.state.crumbsList}</h4>
 
                         <div className="leaflet-container">
-                            <MapView
+                            <StoreMapView
                                 handleShow={(modalContent) => this.handleShow(modalContent)}
                                 breadCrumbs={(crumbs) => this.breadCrumbs(crumbs)}/>
                         </div>

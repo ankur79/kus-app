@@ -8,17 +8,7 @@ class FluActivityModel extends React.Component {
             series: [],
             fluData: [],
             chartData: [],
-            model: [
-                {
-                    id: 0,
-                    name: "LSTM",
-                    check: false
-                }, {
-                    id: 1,
-                    name: "SARIMA",
-                    check: false
-                }
-            ],
+            model: [],
             seasons: [],
             value: "season"
         }
@@ -34,6 +24,7 @@ class FluActivityModel extends React.Component {
                 this.setState({
                     fluData: res.fluActivity,
                     chartData: res.fluActivity,
+                    model: res.model,
                     seasons
                 }, () => {
                     this.buildSeries(res.fluActivity);
@@ -56,7 +47,7 @@ class FluActivityModel extends React.Component {
     handleInputChange = (e) => {
         const target = e.target;
         let model = this.state.model;
-        let update = model.filter(i => i.name === target.name);
+        let update = model.filter(i => i.id === target.name);
         update[0].check = target.checked;
         model[update.id] = update;
         this.setState({
@@ -70,9 +61,9 @@ class FluActivityModel extends React.Component {
             .state
             .model
             .filter(i => i.check)
-            .map(i => i.name);
+            .map(i => i.id);
         const x = [
-            "ACTIVITY LEVEL", ...modelName
+            "ACTIVITY_LEVEL", ...modelName
         ];
         const s = [];
         const fd = this.state.chartData;
@@ -114,16 +105,16 @@ class FluActivityModel extends React.Component {
                                 {seasons.map(s => <option key={s} value={s}>{s}</option>)}
                             </select>
                         </div>
-                        <div className="col col-md-4 mt-2">
+                        <div className="col col-md-12 mt-3 pl-4">
                             <div className="row">
-                                Forecasting model:
+                                <h6>Forecasting model:</h6>
                                 <form className="row">
                                     {model.map(m => {
                                         return (
-                                            <div className="form-check ml-4" key={m.name}>
+                                            <div className="form-check ml-4" key={m.id}>
                                                 <input
                                                     type="checkbox"
-                                                    name={m.name}
+                                                    name={m.id}
                                                     checked={m.check}
                                                     onChange={this.handleInputChange}
                                                     className="form-check-input"

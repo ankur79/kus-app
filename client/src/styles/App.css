@@ -169,3 +169,10 @@ a {
 .nav-pills .nav-link {
   border-radius: 0rem;
 }
+.form-check-label {
+  font-size: 0.75rem;
+}
+.form-control {
+  height: calc(1.75rem + 2px);
+  font-size: 0.8rem;
+}

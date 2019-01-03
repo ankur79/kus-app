@@ -8,6 +8,7 @@ import PredictiveAnalyst from './PredictiveAnalyst';
 import MarketingAnalytics from './MarketingAnalytics';
 import SupplyChain from './SupplyChain';
 import FluSeasons from './FluSeasons';
+import MarketingAnalyst from './MarketingAnalyst';
 
 class App extends Component {
   render() {
@@ -24,7 +25,7 @@ class App extends Component {
               pageTitle="Predictive Analyst"
               component={PredictiveAnalyst}/>
             <Route path="/marketing-analyst" component={MarketingAnalytics}/>
-            <Route path="/supply-chain" render={() => <div>Data Not available</div>}/>
+            <Route path="/supply-chain" component={MarketingAnalyst}/>
           </SideNav>
         </HashRouter>
       </React.Fragment>
