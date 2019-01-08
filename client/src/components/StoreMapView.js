@@ -1,31 +1,22 @@
 import React, {Component} from "react";
-import ReactDOM from "react-dom";
-import {Map, TileLayer, Marker, Popup, GeoJSON} from "react-leaflet";
+import {Map} from "react-leaflet";
 import L from "leaflet";
-import GEOJSON from "../dataSet/stateData.json";
-import txs from "../dataSet/texas.json";
-import mi from "../dataSet/michigan.json";
-import michigan from "../dataSet/michigan.json";
-import county from "../dataSet/country.json";
-import stores from "../dataSet/stores.json";
-import Select from "react-select";
-import $ from 'jquery';
-import options from "../dataSet/us-states.json";
 var info = L.control();
+var geojsn = []
 export default class StoreMapView extends Component {
     state = {
         lat: 42.3,
-        lng: -85.6,
-        zoom: 7,
+        lng: -83.0,
+        zoom: 9,
         data: [],
         stateData: [],
         defaultView: "country",
         crumbs: ["USA"],
         show: false
     };
+
     componentDidMount() {
         this.addPointers();
-        //this.setState({defaultView: "county"}); this.addCountyMap();
         this.addTileLayer();
     }
 
@@ -79,34 +70,16 @@ export default class StoreMapView extends Component {
         info.update();
         //geojson.resetStyle(e.target);
     }
-    addCountryMap() {
-        L.geoJSON(GEOJSON.features, {
-            onEachFeature: (feature, layer) => this.onEachFeature(feature, layer),
-            style: feature => this.style(feature)
-        }).addTo(this.refs.map.leafletElement);
-        this.infoControl();
-        this.displayLegend();
-    }
-    addCountyMap() {
-        //L.geoJSON(uscounties.features).addTo(this.refs.map.leafletElement);
-    }
-    addStateMap(stateName) {
-        const _stateName = stateName.toLowerCase();
-        console.log(_stateName)
-        L.geoJSON(michigan.features, {
-            onEachFeature: (feature, layer) => this.onEachStateFeature(feature, layer)
-        }).addTo(this.refs.map.leafletElement);
-        this.addTileLayer();
-        let crumbs = this.state.crumbs;
-        crumbs.push("Michigan");
-        this.setState({crumbs: crumbs});
-        this.buildCrumbs();
-    }
     markerIcon(content, latlng) {
         return L.divIcon({className: "my-div-icon", html: String(content)});
     }
-    localFunc() {
-        console.log("POP");
+    openPop(id) {
+        geojsn
+            .eachLayer(function (feature) {
+                if (feature.feature.properties.id == id) {
+                    feature.openPopup();
+                }
+            });
     }
     popContent(props) {
         const {properties} = props;
@@ -141,7 +114,7 @@ export default class StoreMapView extends Component {
         return htmlStr;
     }
     addPointers() {
-        L.geoJSON(stores.features, {
+        geojsn = L.geoJSON(this.props.stores.features, {
             pointToLayer: (feature, latlng) => {
                 const {properties} = feature;
                 let popContent = this.popContent(feature);
@@ -153,11 +126,6 @@ export default class StoreMapView extends Component {
             }
         }).addTo(this.refs.map.leafletElement);
         this.addTileLayer();
-
-        let crumbs = this.state.crumbs;
-        crumbs.push("County");
-        this.setState({crumbs: crumbs});
-        this.buildCrumbs();
     }
     zoomToFeature(feature, layer) {
         this
@@ -180,10 +148,6 @@ export default class StoreMapView extends Component {
         if (this.state.defaultView === "state") {
             this.addPointers();
             this.setState({defaultView: "county"});
-        }
-        if (this.state.defaultView === "country") {
-            this.addStateMap(feature.properties.name);
-            this.setState({defaultView: "state"});
         }
     }
     onEachFeature(feature, layer) {
@@ -282,9 +246,39 @@ export default class StoreMapView extends Component {
         const position = [this.state.lat, this.state.lng];
         return (
             <React.Fragment>
-                <div>
-                    <Map center={position} zoom={this.state.zoom} ref="map"/>
+                <div style={{
+                    display: "flex"
+                }}>
+                    <div className="col-xs-4 col-sm-4 pr-0 pl-0">
+                        {this
+                            .props
+                            .stores
+                            .features
+                            .map((item) => <li
+                                key={item.properties.id}
+                                onClick={() => this.openPop(item.properties.id)}
+                                className="addrs-list">
+                                <div
+                                    style={{
+                                    display: "flex"
+                                }}>
+                                    <div className="my-div-icon">{item.properties.id}</div>
+                                    <div className="mt-1 ml-2">
+                                        <h6>{item.properties.name}</h6>
+                                    </div>
+                                </div>
+                                <div className="ml-3 pl-4">
+                                    <address>{item.properties.street}</address>
+                                    <address>{`${item.properties.city}, ${item.properties.state} ${item.properties.zip}`}</address>
+                                    <address>{item.properties.phone}</address>
+                                </div>
+                            </li>)}
+                    </div>
+                    <div className="col-xs-8 col-sm-8 pr-0 pl-0">
+                        <Map center={position} zoom={this.state.zoom} ref="map"/>
+                    </div>
                 </div>
+
             </React.Fragment>
         );
     }

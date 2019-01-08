@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {HashRouter, Route} from 'react-router-dom';
-import AppNav from "./AppNav";
 import SideNav from "./SideNav";
 import "../styles/App.css";
 import Insights from './Insights';
@@ -9,6 +8,7 @@ import MarketingAnalytics from './MarketingAnalytics';
 import SupplyChain from './SupplyChain';
 import FluSeasons from './FluSeasons';
 import MarketingAnalyst from './MarketingAnalyst';
+import KobaiApp from './KobaiApp';
 
 class App extends Component {
   render() {
@@ -26,6 +26,7 @@ class App extends Component {
               component={PredictiveAnalyst}/>
             <Route path="/marketing-analyst" component={MarketingAnalytics}/>
             <Route path="/supply-chain" component={MarketingAnalyst}/>
+            <Route path="/kobai" component={KobaiApp}/>
           </SideNav>
         </HashRouter>
       </React.Fragment>

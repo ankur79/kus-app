@@ -24,13 +24,11 @@ router.get('/', (req, res, next) => {
         response.on('end', function () {
 
             // Data reception is done, do whatever with it! var parsed = JSON.parse(body);
-            // console.log(parsed)
-
-            res.send({
-                success: true,
-                message: 'Flu Activity',
-                fluActivity: JSON.parse(body)
-            });
+            // console.log(parsed) body = body.slice(0, 100)
+            console.log(typeof body)
+            body = JSON.parse(body);
+            body = body.slice(0, 50)
+            res.send({success: true, message: 'kobai', koData: body});
         });
 
     })

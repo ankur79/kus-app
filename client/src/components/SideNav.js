@@ -11,8 +11,8 @@ class SideNav extends React.Component {
                 <Row>
                     <nav className="col-md-2 sidebar d-none d-md-block bg-light">
                         <div
-                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                            <h1 class="h4">Kusari</h1>
+                            className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 className="h4">Kusari</h1>
                         </div>
                         <div className="sidebar-sticky">
                             <Nav className="flex-column">
@@ -51,6 +51,10 @@ class SideNav extends React.Component {
                                         className="nav-link"
                                         activeClassName="active">
                                         <i className="fa fa-th"></i>{" "}Supply Chain Dashboard</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink exact to="/kobai" className="nav-link" activeClassName="active">
+                                        <i className="fa fa-plus"></i>{" "}Kobai</NavLink>
                                 </li>
                             </Nav>
                         </div>

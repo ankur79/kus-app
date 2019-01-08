@@ -57,6 +57,7 @@ ul.flex-column.nav a {
 .leaflet-container {
   height: 400px;
   width: 100%;
+  background-color: white;
 }
 
 .info {
@@ -93,6 +94,11 @@ ul.flex-column.nav a {
   font-weight: bold;
   text-align: center;
   padding: 2px;
+}
+.my-add-icon {
+  height: 28px !important;
+  width: 28px !important;
+  padding: 0;
 }
 .custom-modal {
   width: 90%;
@@ -175,4 +181,26 @@ a {
 .form-control {
   height: calc(1.75rem + 2px);
   font-size: 0.8rem;
+}
+address {
+  margin-bottom: 0;
+  color: #4a69bd;
+}
+.addrs-list {
+  list-style: none;
+  border: 1px solid #1e3799;
+  padding: 10px;
+  margin: 10px;
+}
+.addrs-list h6 {
+  color: #1e3799;
+}
+.pop-address a {
+  cursor: pointer;
+}
+.leaflet-container a {
+  color: #0078a8 !important;
+}
+.leaflet-popup-content {
+  width: 250px !important;
 }
