@@ -2,13 +2,44 @@ import React, {Component} from "react";
 import {HashRouter, Route} from 'react-router-dom';
 import SideNav from "./SideNav";
 import "../styles/App.css";
-import Insights from './Insights';
-import PredictiveAnalyst from './PredictiveAnalyst';
-import MarketingAnalytics from './MarketingAnalytics';
-import SupplyChain from './SupplyChain';
-import FluSeasons from './FluSeasons';
-import MarketingAnalyst from './MarketingAnalyst';
-import KobaiApp from './KobaiApp';
+import Loadable from 'react-loadable';
+
+const Insights = Loadable({
+  loader: () => import ('./Insights'),
+  loading() {
+    return <div className="loader"></div>
+  }
+});
+const PredictiveAnalyst = Loadable({
+  loader: () => import ('./PredictiveAnalyst'),
+  loading() {
+    return <div className="loader"></div>
+  }
+});
+const MarketingAnalytics = Loadable({
+  loader: () => import ('./MarketingAnalytics'),
+  loading() {
+    return <div className="loader"></div>
+  }
+});
+const FluSeasons = Loadable({
+  loader: () => import ('./FluSeasons'),
+  loading() {
+    return <div className="loader"></div>
+  }
+});
+const MarketingAnalyst = Loadable({
+  loader: () => import ('./MarketingAnalyst'),
+  loading() {
+    return <div className="loader"></div>
+  }
+});
+const KobaiApp = Loadable({
+  loader: () => import ('./KobaiApp'),
+  loading() {
+    return <div className="loader"></div>
+  }
+});
 
 class App extends Component {
   render() {

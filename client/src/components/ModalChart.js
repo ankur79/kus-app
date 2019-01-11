@@ -5,7 +5,13 @@ class ModalChart extends React.Component {
     render() {
         return (
             <div>
-                <Media object data-src={img} responsive/>;
+                <img
+                    object
+                    src={img}
+                    style={{
+                    width: "100%",
+                    height: "auto"
+                }}/>
             </div>
         )
     }

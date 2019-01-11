@@ -204,3 +204,35 @@ address {
 .leaflet-popup-content {
   width: 250px !important;
 }
+.modal-table {
+  width: 100%;
+  overflow: auto;
+  font-size: 0.75rem;
+}
+.pop-address a {
+  padding: 0 5px;
+}
+.pop-address a:not(:last-child) {
+  border-right: 1px solid #333;
+}
+
+.loader:empty {
+  position: absolute;
+  margin-top: 20%;
+  left: calc(50% - 4em);
+  width: 6em;
+  height: 6em;
+  border: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-left: 1.1em solid #000000;
+  border-radius: 50%;
+  animation: load8 1.1s infinite linear;
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

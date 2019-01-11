@@ -16,11 +16,11 @@ class ModalContent extends React.Component {
                 </ModalHeader>
                 <ModalBody>
                     {contentType === 'table'
-                        ? <div><ModalTable data={csvjson}/></div>
+                        ? <div className="modal-table"><ModalTable data={csvjson}/></div>
                         : contentType === 'chart'
                             ? <div><ModalChart/></div>
                             : contentType === 'metrics'
-                                ? <div><ModalTable data={metrics}/></div>
+                                ? <div className="modal-table"><ModalTable data={metrics}/></div>
                                 : contentType === 'predict line'
                                     ? <div><ModalHighChart/></div>
                                     : ""

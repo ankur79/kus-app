@@ -105,9 +105,9 @@ export default class StoreMapView extends Component {
                                 </select>
                             </div>
                             <div class="row pop-address">
-                                <a nohref onclick="L.thorsten.t('table')">Table</a> | 
-                                <a nohref onclick="L.thorsten.t('chart')">Chart</a> | 
-                                <a nohref onclick="L.thorsten.t('metrics')">Metrics</a>| 
+                                <a nohref onclick="L.thorsten.t('table')">Table</a> 
+                                <a nohref onclick="L.thorsten.t('chart')">Chart</a> 
+                                <a nohref onclick="L.thorsten.t('metrics')">Metrics</a>
                                 <a nohref onclick="L.thorsten.t('predict line')">Predict Line</a>
                             </div>
                         </div>`;

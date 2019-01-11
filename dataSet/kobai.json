@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92012-13",
+    "fluSeason": {
+      "seasonName": "2012-13",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2012-13"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicM"
+    },
+    "relevantWeek": {
+      "endingDate": "2013-03-02",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92012-13"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Hispanic",
+      "name": "Hispanic"
+    },
+    "avgTempInFahrenheit": "27.8",
+    "reportedFluRate": "38.7",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92012-13",
+    "fluSeason": {
+      "seasonName": "2012-13",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2012-13"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicI"
+    },
+    "relevantWeek": {
+      "endingDate": "2013-03-02",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92012-13"
+    },
+    "ageDemographic": {
+      "name": "FiftyToSixtyFourYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FiftyToSixtyFourYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "27.8",
+    "reportedFluRate": "60.4",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92012-13",
+    "fluSeason": {
+      "seasonName": "2012-13",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2012-13"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicL"
+    },
+    "relevantWeek": {
+      "endingDate": "2013-03-02",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92012-13"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Black",
+      "name": "Black"
+    },
+    "avgTempInFahrenheit": "27.8",
+    "reportedFluRate": "47.2",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92012-13",
+    "fluSeason": {
+      "seasonName": "2012-13",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2012-13"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicK"
+    },
+    "relevantWeek": {
+      "endingDate": "2013-03-02",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92012-13"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#White",
+      "name": "White"
+    },
+    "avgTempInFahrenheit": "27.8",
+    "reportedFluRate": "28.1",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92012-13",
+    "fluSeason": {
+      "seasonName": "2012-13",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2012-13"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicH"
+    },
+    "relevantWeek": {
+      "endingDate": "2013-03-02",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92012-13"
+    },
+    "ageDemographic": {
+      "name": "EightteenToFortyNineYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#EightteenToFortyNineYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "27.8",
+    "reportedFluRate": "42.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicF"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "UnderSixMonths",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#UnderSixMonths"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "54.1",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicI"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "FiftyToSixtyFourYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FiftyToSixtyFourYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "62.7",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicN"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Other",
+      "name": "Other"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "0",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicH"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "EightteenToFortyNineYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#EightteenToFortyNineYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "43.5",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicJ"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "SixtyFiveYearsAndOver",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixtyFiveYearsAndOver"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "42.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicL"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Black",
+      "name": "Black"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "53.4",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicK"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#White",
+      "name": "White"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "38.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicG"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "SixMonthsToSeventeenYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixMonthsToSeventeenYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "27.7",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92013-14",
+    "fluSeason": {
+      "seasonName": "2013-14",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2013-14"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicM"
+    },
+    "relevantWeek": {
+      "endingDate": "2014-03-01",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92013-14"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Hispanic",
+      "name": "Hispanic"
+    },
+    "avgTempInFahrenheit": "21",
+    "reportedFluRate": "43.1",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicF"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "UnderSixMonths",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#UnderSixMonths"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "43.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicK"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#White",
+      "name": "White"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "45.2",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicI"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "FiftyToSixtyFourYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FiftyToSixtyFourYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "44.5",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicH"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "EightteenToFortyNineYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#EightteenToFortyNineYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "29.4",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicL"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Black",
+      "name": "Black"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "36.9",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicM"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Hispanic",
+      "name": "Hispanic"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "43.7",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicN"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Other",
+      "name": "Other"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "42.2",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicJ"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "SixtyFiveYearsAndOver",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixtyFiveYearsAndOver"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "63.7",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92014-15",
+    "fluSeason": {
+      "seasonName": "2014-15",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2014-15"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicG"
+    },
+    "relevantWeek": {
+      "endingDate": "2015-03-07",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92014-15"
+    },
+    "ageDemographic": {
+      "name": "SixMonthsToSeventeenYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixMonthsToSeventeenYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "28.6",
+    "reportedFluRate": "52.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicK"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#White",
+      "name": "White"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "42.3",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicG"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "SixMonthsToSeventeenYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixMonthsToSeventeenYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "53.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicH"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "EightteenToFortyNineYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#EightteenToFortyNineYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "28",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicJ"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "SixtyFiveYearsAndOver",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixtyFiveYearsAndOver"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "58.3",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicF"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "UnderSixMonths",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#UnderSixMonths"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "41.5",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicL"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Black",
+      "name": "Black"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "35.8",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicI"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "FiftyToSixtyFourYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FiftyToSixtyFourYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "41.9",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicM"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Hispanic",
+      "name": "Hispanic"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "46",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92015-16",
+    "fluSeason": {
+      "seasonName": "2015-16",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2015-16"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicN"
+    },
+    "relevantWeek": {
+      "endingDate": "2016-03-05",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92015-16"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Other",
+      "name": "Other"
+    },
+    "avgTempInFahrenheit": "36.1",
+    "reportedFluRate": "39.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicN"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Other",
+      "name": "Other"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "41.9",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicH"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "EightteenToFortyNineYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#EightteenToFortyNineYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "29.8",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicI"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "FiftyToSixtyFourYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FiftyToSixtyFourYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "41.5",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicG"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "SixMonthsToSeventeenYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixMonthsToSeventeenYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "54.3",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicM"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Hispanic",
+      "name": "Hispanic"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "42.1",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicK"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#White",
+      "name": "White"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "44.8",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicF"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "UnderSixMonths",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#UnderSixMonths"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "43.1",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicL"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Black",
+      "name": "Black"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "36.5",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92016-17",
+    "fluSeason": {
+      "seasonName": "2016-17",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2016-17"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicJ"
+    },
+    "relevantWeek": {
+      "endingDate": "2017-03-11",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92016-17"
+    },
+    "ageDemographic": {
+      "name": "SixtyFiveYearsAndOver",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixtyFiveYearsAndOver"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "34.75",
+    "reportedFluRate": "61.6",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicG"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "SixMonthsToSeventeenYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixMonthsToSeventeenYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicK"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#White",
+      "name": "White"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicM"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Hispanic",
+      "name": "Hispanic"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicI"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "FiftyToSixtyFourYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FiftyToSixtyFourYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicN"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Other",
+      "name": "Other"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicL"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "AllAges",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllAges"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Black",
+      "name": "Black"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicJ"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "SixtyFiveYearsAndOver",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#SixtyFiveYearsAndOver"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicF"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "UnderSixMonths",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#UnderSixMonths"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  },
+  {
+    "id": "http://kobai/models/client/Kusari/KusariDisease#WeatherData92017-18",
+    "fluSeason": {
+      "seasonName": "2017-18",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#FluSeason2017-18"
+    },
+    "demographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#DemographicH"
+    },
+    "relevantWeek": {
+      "endingDate": "2018-03-10",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#Week92017-18"
+    },
+    "ageDemographic": {
+      "name": "EightteenToFortyNineYears",
+      "id": "http://kobai/models/client/Kusari/KusariDisease#EightteenToFortyNineYears"
+    },
+    "racialDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllRaces",
+      "name": "AllRaces"
+    },
+    "avgTempInFahrenheit": "30.72",
+    "reportedFluRate": "",
+    "state": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#StateMichigan",
+      "name": "Michigan"
+    },
+    "genderDemographic": {
+      "id": "http://kobai/models/client/Kusari/KusariDisease#AllGenders",
+      "name": "AllGenders"
+    }
+  }
+]

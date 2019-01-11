@@ -3,8 +3,9 @@ var router = express.Router();
 const https = require('https');
 
 // Gets Flu Model
-router.get('/', (req, res, next) => {
-
+router.get('/count/:id', (req, res, next) => {
+    //const count = req.params.id === "all" ? "all"
+    console.log(req.params)
     const options = {
         hostname: 'demo2.awsdev2.kobai.io',
         path: '/data-svcs/api/kusari/drate',
@@ -24,11 +25,20 @@ router.get('/', (req, res, next) => {
         response.on('end', function () {
 
             // Data reception is done, do whatever with it! var parsed = JSON.parse(body);
-            // console.log(parsed) body = body.slice(0, 100)
-            console.log(typeof body)
+            // console.log(parsed) body = body.slice(0, 100) console.log(typeof body)
             body = JSON.parse(body);
-            body = body.slice(0, 50)
-            res.send({success: true, message: 'kobai', koData: body});
+            let fData = []
+            if (req.params.id != "all") {
+                fData = body
+                    .filter(item => item.avgTempInFahrenheit != "")
+                    .map(item => {
+                        return {avgTempInFahrenheit: item.avgTempInFahrenheit, reportedFluRate: item.reportedFluRate, endingDate: item.relevantWeek.endingDate}
+                    })
+                /*body = body.reverse();
+                body = body.slice(0, Number(req.params.id));
+                body = body.reverse();*/
+            }
+            res.send({success: true, message: 'kobai', koData: fData});
         });
 
     })
