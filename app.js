@@ -19,6 +19,7 @@ var hosRouter = require('./routes/hospitalizations');
 var vacCoverageRouter = require('./routes/vaccoverage');
 var vacEffectRouter = require('./routes/vaceffect');
 var kobRouter = require('./routes/kobwrapper');
+var kobTab = require('./routes/kobtable');
 var countyPop = require('./routes/countypopulation');
 var statePop = require('./routes/statepopulation');
 
@@ -61,6 +62,7 @@ app.use('/api/hospitalizations', hosRouter);
 app.use('/api/vacCoverage', vacCoverageRouter);
 app.use('/api/vacEffect', vacEffectRouter);
 app.use('/api/ko-drate', kobRouter);
+app.use('/api/ko-tab', kobTab);
 app.use('/api/countyPop', countyPop);
 app.use('/api/statePop', statePop);
 

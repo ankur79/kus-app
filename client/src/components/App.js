@@ -40,7 +40,12 @@ const KobaiApp = Loadable({
     return <div className="loader"></div>
   }
 });
-
+const KobaiTable = Loadable({
+  loader: () => import ('./KobaiTable'),
+  loading() {
+    return <div className="loader"></div>
+  }
+});
 class App extends Component {
   render() {
     const hash = "/#"
@@ -58,6 +63,7 @@ class App extends Component {
             <Route path="/marketing-analyst" component={MarketingAnalytics}/>
             <Route path="/supply-chain" component={MarketingAnalyst}/>
             <Route path="/kobai" component={KobaiApp}/>
+            <Route path="/kob-table" component={KobaiTable}/>
           </SideNav>
         </HashRouter>
       </React.Fragment>

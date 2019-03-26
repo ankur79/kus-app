@@ -56,6 +56,10 @@ class SideNav extends React.Component {
                                     <NavLink exact to="/kobai" className="nav-link" activeClassName="active">
                                         <i className="fa fa-plus"></i>{" "}Kobai</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink exact to="/kob-table" className="nav-link" activeClassName="active">
+                                        <i className="fa fa-plus-square"></i>{" "}Inventory</NavLink>
+                                </li>
                             </Nav>
                         </div>
                     </nav>
