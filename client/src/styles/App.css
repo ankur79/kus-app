@@ -236,3 +236,6 @@ address {
     transform: rotate(360deg);
   }
 }
+table {
+  font-size: 0.75rem;
+}

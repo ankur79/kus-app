@@ -20,25 +20,36 @@ class KobaiTable extends Component {
             })
             .catch(error => console.error('Error:', error))
     }
+
     buildSeries = (data) => {
         this.setState({tabEl: null});
-        const rows = data.map(row => <tr>
-            <td>{row.plant.description}</td>
-            <td>{row.plant.id}</td>
-            <td>{row.type}</td>
-            <td>{row.sku.description}</td>
-            <td>{row.sku.id}</td>
-            <td>{row.quantity}</td>
-        </tr>)
-        const header = <tr>
-            <th>Plant description</th>
-            <th>Plant ID</th>
-            <th>Inventory Type</th>
-            <th>SKU description</th>
-            <th>SKU ID</th>
-            <th>Quantity</th>
-        </tr>;
-        const content = <table className="table">{header}{rows}</table>
+        const rows = []
+        let h = []
+        for (var i in data) {
+            if (i === "0") {
+                h = data[0].map((k, index) => {
+                    var s = Object.keys(k);
+                    return (
+                        <th key={index}>{s[0]}</th>
+                    )
+                })
+            }
+            const r = data[i].map((k, index) => {
+                var s = Object.values(k);
+                return (
+                    <td key={index}>{s[0]}</td>
+                )
+            })
+            rows.push(
+                <tr key={i}>{r}</tr>
+            )
+        }
+        const content = <table className="table">
+            <thead>
+                <tr>{h}</tr>
+            </thead>
+            <tbody>{rows}</tbody>
+        </table>
         this.setState({tabEl: content});
     }
     render() {
@@ -81,5 +92,4 @@ class KobaiTable extends Component {
         );
     }
 }
-
 export default KobaiTable;

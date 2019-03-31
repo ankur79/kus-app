@@ -35,15 +35,11 @@ router.get('/ep/:id/akey/:akey', (req, res, next) => {
             body = JSON.parse(body);
             //let fData = [] if (req.params.id != "all") {
             fData = body
-            /*.filter(item => item.avgTempInFahrenheit != "")
-                    .map(item => {
-                        return {avgTempInFahrenheit: item.avgTempInFahrenheit, reportedFluRate: item.reportedFluRate, endingDate: item.relevantWeek.endingDate}
-                    })
-                body = body.reverse();
-                body = body.slice(0, Number(req.params.id));
-                body = body.reverse();*/
-            //}
-            res.send({success: true, message: 'kobai', koData: fData});
+            var newArr = []
+            for (i in fData) {
+                newArr.push(spreadData(fData[i]))
+            }
+            res.send({success: true, message: 'kobai', koData: newArr});
         });
 
     })
@@ -56,6 +52,44 @@ router.get('/ep/:id/akey/:akey', (req, res, next) => {
 
 });
 
+function jsonParser(o) {
+    var f = Object
+        .keys(o)
+        .map(i => {
+            if (isObject(o[i])) {
+                var t = o[i];
+                var n = Object
+                    .keys(t)
+                    .map(k => {
+                        var v = `${i}_${k}`
+                        return {[v]: t[k]}
+                    });
+                return n
+            } else {
+                return {[i]: o[i]}
+            }
+
+        })
+    return f
+}
+function spreadData(d) {
+    var nd = [];
+    for (i in x = jsonParser(d)) {
+        if (x[i].length > 0) {
+            nd.push(...x[i])
+        } else {
+            nd.push(x[i])
+        }
+    }
+    return nd;
+}
+function isObject(value) {
+    return value && typeof value === 'object' && value.constructor === Object;
+}
+
 /*
+
+console.log(nd)
+
 */
 module.exports = router;
