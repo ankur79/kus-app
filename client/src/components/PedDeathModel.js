@@ -1,88 +1,4008 @@
-import React from 'react';
-import AppChart from '../components/AppChart';
-import {groupBy} from 'lodash';
+import React from "react";
+import AppChart from "../components/AppChart";
+import { groupBy } from "lodash";
 class PedDeathModel extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            series: [],
-            pedData: [],
-            chartData: [],
-            seasons: [],
-            value: "season"
-        }
-    }
-    componentDidMount() {
-        const loc = window.location.hostname === "localhost"
-            ? "http://localhost:5000"
-            : ""
-        fetch(`${loc}/api/peddeaths`)
-            .then(res => res.json())
-            .then(res => {
-                const seasons = Object.keys(groupBy(res.pedDeaths, "SEASON"));
-                this.setState({
-                    pedData: res.pedDeaths,
-                    chartData: res.pedDeaths,
-                    seasons
-                }, () => {
-                    this.buildSeries(res.pedDeaths);
-                })
+  constructor(props) {
+    super(props);
+    this.state = {
+      series: [],
+      pedData: [],
+      chartData: [],
+      seasons: [],
+      value: "season"
+    };
+  }
+  componentDidMount() {
+    /*const loc =
+      window.location.hostname === "localhost" ? "http://localhost:5000" : "";
+    fetch(`${loc}/dataSet/peddeath.json`)
+      .then(res => res.json())
+      .then(res => {*/
+    const res = [
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-49",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-51",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2004-52",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-01",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-02",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-03",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-04",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-05",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-06",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-07",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-08",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-09",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-10",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-11",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-12",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-13",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-14",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-15",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-16",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-17",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-18",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-19",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-21",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-32",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2004-05",
+        WEEK: "2005-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-41",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-45",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-48",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-49",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-51",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2005-52",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-01",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-02",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-03",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-04",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-05",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-06",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-07",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-08",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-09",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-10",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-11",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-12",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-13",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-14",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-15",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-16",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-17",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-18",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-19",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-20",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-21",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2005-06",
+        WEEK: "2006-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-49",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-51",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2006-52",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-01",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-02",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-03",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-04",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-05",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-06",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-07",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-08",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-09",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-10",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-11",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-12",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-13",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-14",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-15",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-16",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-17",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-18",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-19",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-21",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-24",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-35",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2006-07",
+        WEEK: "2007-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-45",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-49",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-51",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2007-52",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-01",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-02",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-03",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-04",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-05",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-06",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-07",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-08",
+        DEATHS: 12
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-09",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-10",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-11",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-12",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-13",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-14",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-15",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-16",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-17",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-18",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-19",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-20",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-21",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-24",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2007-08",
+        WEEK: "2008-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-49",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-51",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-52",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2008-53",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-01",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-02",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-03",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-04",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-05",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-06",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-07",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-08",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-09",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-10",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-11",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-12",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-13",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-14",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-15",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-16",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-17",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-18",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-19",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-20",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-21",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-22",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-23",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-24",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-25",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-26",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-27",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-28",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-29",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-30",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-31",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-32",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-33",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2008-09",
+        WEEK: "2009-34",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-35",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-36",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-37",
+        DEATHS: 16
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-38",
+        DEATHS: 16
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-39",
+        DEATHS: 20
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-40",
+        DEATHS: 24
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-41",
+        DEATHS: 22
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-42",
+        DEATHS: 35
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-43",
+        DEATHS: 29
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-44",
+        DEATHS: 32
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-45",
+        DEATHS: 17
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-46",
+        DEATHS: 12
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-47",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-48",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-49",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-50",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-51",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2009-52",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-01",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-02",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-03",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-04",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-05",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-06",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-07",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-08",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-09",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-10",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-11",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-12",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-13",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-14",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-15",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-16",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-17",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-18",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-19",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-21",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-23",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2009-10",
+        WEEK: "2010-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-43",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-46",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-47",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-48",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-49",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-51",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2010-52",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-01",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-02",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-03",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-04",
+        DEATHS: 15
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-05",
+        DEATHS: 12
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-06",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-07",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-08",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-09",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-10",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-11",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-12",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-13",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-14",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-15",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-16",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-17",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-18",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-19",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-21",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-33",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2010-11",
+        WEEK: "2011-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-43",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-49",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-51",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2011-52",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-01",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-02",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-03",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-04",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-05",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-06",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-07",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-08",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-09",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-10",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-11",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-12",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-13",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-14",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-15",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-16",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-17",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-18",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-19",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-21",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-23",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2011-12",
+        WEEK: "2012-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-40",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-43",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-46",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-47",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-48",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-49",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-50",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-51",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2012-52",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-01",
+        DEATHS: 14
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-02",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-03",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-04",
+        DEATHS: 17
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-05",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-06",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-07",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-08",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-09",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-10",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-11",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-12",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-13",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-14",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-15",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-16",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-17",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-18",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-19",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-20",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-21",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-27",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-33",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2012-13",
+        WEEK: "2013-39",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-42",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-43",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-47",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-49",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-50",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-51",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2013-52",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-01",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-02",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-03",
+        DEATHS: 13
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-04",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-05",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-06",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-07",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-08",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-09",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-10",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-11",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-12",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-13",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-14",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-15",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-16",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-17",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-18",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-19",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-21",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-22",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-23",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-32",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2013-14",
+        WEEK: "2014-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-40",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-43",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-46",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-47",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-48",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-49",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-50",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-51",
+        DEATHS: 17
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-52",
+        DEATHS: 13
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2014-53",
+        DEATHS: 13
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-01",
+        DEATHS: 12
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-02",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-03",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-04",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-05",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-06",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-07",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-08",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-09",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-10",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-11",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-12",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-13",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-14",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-15",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-16",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-17",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-18",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-19",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-21",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-23",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-32",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2014-15",
+        WEEK: "2015-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-44",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-48",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-49",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-50",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-51",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2015-52",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-01",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-02",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-03",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-04",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-05",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-06",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-07",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-08",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-09",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-10",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-11",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-12",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-13",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-14",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-15",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-16",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-17",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-18",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-19",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-21",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-22",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-23",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-25",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-27",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-28",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2015-16",
+        WEEK: "2016-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-48",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-49",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-50",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-51",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2016-52",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-01",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-02",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-03",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-04",
+        DEATHS: 9
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-05",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-06",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-07",
+        DEATHS: 12
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-08",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-09",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-10",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-11",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-12",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-13",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-14",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-15",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-16",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-17",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-18",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-19",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-20",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-21",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-23",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-33",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-35",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2016-17",
+        WEEK: "2017-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-40",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-41",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-42",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-44",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-45",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-46",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-47",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-49",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-50",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-51",
+        DEATHS: 8
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2017-52",
+        DEATHS: 7
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-01",
+        DEATHS: 15
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-02",
+        DEATHS: 10
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-03",
+        DEATHS: 14
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-04",
+        DEATHS: 18
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-05",
+        DEATHS: 12
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-06",
+        DEATHS: 17
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-07",
+        DEATHS: 11
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-08",
+        DEATHS: 14
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-09",
+        DEATHS: 13
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-10",
+        DEATHS: 3
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-11",
+        DEATHS: 6
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-12",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-13",
+        DEATHS: 5
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-14",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-15",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-16",
+        DEATHS: 4
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-17",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-18",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-19",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-20",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-21",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-22",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-38",
+        DEATHS: 2
+      },
+      {
+        SEASON: "2017-18",
+        WEEK: "2018-39",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-40",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-41",
+        DEATHS: 1
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-42",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-43",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-44",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-45",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-46",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-47",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-48",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-49",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-50",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-51",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2018-52",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-01",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-02",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-03",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-04",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-05",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-06",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-07",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-08",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-09",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-10",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-11",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-12",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-13",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-14",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-15",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-16",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-17",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-18",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-19",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-20",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-21",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-22",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-23",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-24",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-25",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-26",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-27",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-28",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-29",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-30",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-31",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-32",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-33",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-34",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-35",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-36",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-37",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-38",
+        DEATHS: 0
+      },
+      {
+        SEASON: "2018-19",
+        WEEK: "2019-39",
+        DEATHS: 0
+      }
+    ];
 
-            })
-            .catch(error => console.error('Error:', error))
-    }
-    handleChange = (e) => {
-        const d = groupBy(this.state.pedData, "SEASON");
-        this.setState({
-            chartData: e.target.value === "season"
-                ? this.state.pedData
-                : d[e.target.value],
-            value: e.target.value
-        }, () => {
-            this.buildSeries(this.state.chartData);
-        });
-    }
-    buildSeries = (data) => {
-        const fd = data
-            .filter(item => item.DEATHS)
-            .map(num => num.DEATHS);
-        this.setState({
-            series: [
-                {
-                    data: fd
-                }
-            ],
-            categories: Object.keys(groupBy(data, "WEEK"))
-        });
-    }
-    render() {
-        const {model, seasons} = this.state;
-        return (
-            <div className="row placeholders">
-                <div className="col-xs-12 col-sm-12 placeholder insight-tab">
-                    <div className="row">
-                        <div className="col col-md-2">
-                            <select
-                                className="form-control"
-                                value={this.state.value}
-                                onChange={this.handleChange}>
-                                <option value="season">All Seasons</option>
-                                {seasons.map(s => <option key={s} value={s}>{s}</option>)}
-                            </select>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col">
-                            <AppChart
-                                chartTitle="Pediatric Deaths"
-                                categories={this.state.categories}
-                                series={this.state.series}/>
-                        </div>
-                    </div>
-                </div>
+    const seasons = Object.keys(groupBy(res, "SEASON"));
+    this.setState(
+      {
+        pedData: res,
+        chartData: res,
+        seasons
+      },
+      () => {
+        this.buildSeries(res);
+      }
+    );
+    /*})
+      .catch(error => console.error("Error:", error));*/
+  }
+  handleChange = e => {
+    const d = groupBy(this.state.pedData, "SEASON");
+    this.setState(
+      {
+        chartData:
+          e.target.value === "season" ? this.state.pedData : d[e.target.value],
+        value: e.target.value
+      },
+      () => {
+        this.buildSeries(this.state.chartData);
+      }
+    );
+  };
+  buildSeries = data => {
+    const fd = data.filter(item => item.DEATHS).map(num => num.DEATHS);
+    this.setState({
+      series: [
+        {
+          data: fd
+        }
+      ],
+      categories: Object.keys(groupBy(data, "WEEK"))
+    });
+  };
+  render() {
+    const { model, seasons } = this.state;
+    return (
+      <div className="row placeholders">
+        <div className="col-xs-12 col-sm-12 placeholder insight-tab">
+          <div className="row">
+            <div className="col col-md-2">
+              <select
+                className="form-control"
+                value={this.state.value}
+                onChange={this.handleChange}
+              >
+                <option value="season">All Seasons</option>
+                {seasons.map(s => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
             </div>
-        )
-    }
+          </div>
+          <div className="row">
+            <div className="col">
+              <AppChart
+                chartTitle="Pediatric Deaths"
+                categories={this.state.categories}
+                series={this.state.series}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default PedDeathModel
+export default PedDeathModel;
