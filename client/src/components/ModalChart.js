@@ -1,20 +1,21 @@
-import React from 'react';
-import {Media} from 'reactstrap';
-import img from '../images/unnamed.png';
+import React from "react";
+import { Media } from "reactstrap";
+import img from "../images/unamed3.png";
 class ModalChart extends React.Component {
-    render() {
-        return (
-            <div>
-                <img
-                    object
-                    src={img}
-                    style={{
-                    width: "100%",
-                    height: "auto"
-                }}/>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <img
+          object
+          src={img}
+          style={{
+            width: "100%",
+            height: "auto"
+          }}
+        />
+      </div>
+    );
+  }
 }
 
 export default ModalChart;
