@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import {Map, TileLayer, Marker, Popup, GeoJSON} from "react-leaflet";
+import { Map, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import GEOJSON from "../dataSet/stateData.json";
 import txs from "../dataSet/texas.json";
@@ -9,7 +9,7 @@ import michigan from "../dataSet/michigan.json";
 import county from "../dataSet/country.json";
 import stores from "../dataSet/stores.json";
 import Select from "react-select";
-import $ from 'jquery';
+import $ from "jquery";
 import options from "../dataSet/us-states.json";
 var info = L.control();
 export default class MapView extends Component {
@@ -25,29 +25,27 @@ export default class MapView extends Component {
   };
   componentDidMount() {
     //this.addCountryMap(); this.addCountyMap();
-    this.addStateMap('michigan');
+    this.addStateMap("michigan");
     this.addTileLayer();
   }
 
   getColor(d, area) {
-    const times = area != "state"
-      ? 15
-      : 1;
+    const times = area != "state" ? 15 : 1;
     return d > 1000 * times
       ? "#800026"
       : d > 500 * times
-        ? "#BD0026"
-        : d > 200 * times
-          ? "#E31A1C"
-          : d > 100 * times
-            ? "#FC4E2A"
-            : d > 50 * times
-              ? "#FD8D3C"
-              : d > 20 * times
-                ? "#FEB24C"
-                : d > 10 * times
-                  ? "#FED976"
-                  : "#DDDDDD";
+      ? "#BD0026"
+      : d > 200 * times
+      ? "#E31A1C"
+      : d > 100 * times
+      ? "#FC4E2A"
+      : d > 50 * times
+      ? "#FD8D3C"
+      : d > 20 * times
+      ? "#FEB24C"
+      : d > 10 * times
+      ? "#FED976"
+      : "#DDDDDD";
   }
   style(feature, area = "state") {
     return {
@@ -60,18 +58,25 @@ export default class MapView extends Component {
     };
   }
   countyStyle(feature) {
-    return {weight: 1, opacity: 1, color: "black", dashArray: "2", fillOpacity: 0.3};
+    return {
+      weight: 1,
+      opacity: 1,
+      color: "black",
+      dashArray: "2",
+      fillOpacity: 0.3
+    };
   }
   highlightFeature(feature, layer, area) {
     //var layer = e.target;
-    this
-      .refs
-      .map
-      .leafletElement
-      .eachLayer(layer => {
-        //console.log(layer);
-      });
-    layer.setStyle({weight: 2, color: "#666", dashArray: "", fillOpacity: 0.7});
+    this.refs.map.leafletElement.eachLayer(layer => {
+      //console.log(layer);
+    });
+    layer.setStyle({
+      weight: 2,
+      color: "#666",
+      dashArray: "",
+      fillOpacity: 0.7
+    });
     //console.log(layer.feature)
     info.update(layer.feature.properties, area);
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -79,7 +84,13 @@ export default class MapView extends Component {
     }
   }
   resetHighlight(feature, layer, area) {
-    layer.setStyle({weight: 2, opacity: 1, color: "white", dashArray: "3", fillOpacity: 0.7});
+    layer.setStyle({
+      weight: 2,
+      opacity: 1,
+      color: "white",
+      dashArray: "3",
+      fillOpacity: 0.7
+    });
     info.update(layer.feature.properties, area);
     //geojson.resetStyle(e.target);
   }
@@ -97,59 +108,386 @@ export default class MapView extends Component {
   addStateMap(stateName) {
     let updateState = [];
     //this.displayReset()
-    const loc = window.location.hostname === "localhost"
+    /*const loc = window.location.hostname === "localhost"
       ? "http://localhost:5000"
       : ""
     fetch(`${loc}/api/countyPop`)
       .then(res => res.json())
-      .then(res => {
-        let countyPop = res.population;
-        let state = michigan.features;
-        console.log(countyPop)
-        for (let i in state) {
-          const p = countyPop
-            .filter(item => item.County === state[i].properties.name)
-            .map(item => item.Population);
-          const pop = p[0] != undefined
-            ? this.convertToNum(p[0])
-            : 0;
-          state[i].properties.density = pop;
-          updateState.push(state[i]);
-        }
-        this.updatedStateFeatures(updateState);
-        this.infoControl();
-        //$(".state").css("display", "none")
-        this.displayLegend("county");
-      })
-      .catch(error => console.error('Error:', error));
-
+      .then(res => {*/
+    let countyPop = [
+      {
+        County: "Alcona",
+        Population: 8815
+      },
+      {
+        County: "Alger",
+        Population: 8243
+      },
+      {
+        County: "Allegan",
+        Population: 100018
+      },
+      {
+        County: "Alpena",
+        Population: 28085
+      },
+      {
+        County: "Antrim",
+        Population: 19375
+      },
+      {
+        County: "Arenac",
+        Population: 16754
+      },
+      {
+        County: "Baraga",
+        Population: 8167
+      },
+      {
+        County: "Barry",
+        Population: 47440
+      },
+      {
+        County: "Bay",
+        Population: 102929
+      },
+      {
+        County: "Benzie",
+        Population: 9128
+      },
+      {
+        County: "Berrien",
+        Population: 160420
+      },
+      {
+        County: "Branch",
+        Population: 44139
+      },
+      {
+        County: "Calhoun",
+        Population: 110860
+      },
+      {
+        County: "Cass",
+        Population: 41837
+      },
+      {
+        County: "Charlevoix",
+        Population: 27211
+      },
+      {
+        County: "Cheboygan",
+        Population: 22802
+      },
+      {
+        County: "Chippewa",
+        Population: 37960
+      },
+      {
+        County: "Clare",
+        Population: 33255
+      },
+      {
+        County: "Clinton",
+        Population: 58249
+      },
+      {
+        County: "Crawford",
+        Population: 11979
+      },
+      {
+        County: "Delta",
+        Population: 37417
+      },
+      {
+        County: "Dickinson",
+        Population: 25679
+      },
+      {
+        County: "Eaton",
+        Population: 112879
+      },
+      {
+        County: "Emmet",
+        Population: 34448
+      },
+      {
+        County: "Genesee",
+        Population: 431175
+      },
+      {
+        County: "Gladwin",
+        Population: 26359
+      },
+      {
+        County: "Gogebic",
+        Population: 15750
+      },
+      {
+        County: "Grand Traverse",
+        Population: 87370
+      },
+      {
+        County: "Gratiot",
+        Population: 43147
+      },
+      {
+        County: "Hillsdale",
+        Population: 40724
+      },
+      {
+        County: "Houghton",
+        Population: 36972
+      },
+      {
+        County: "Huron",
+        Population: 29048
+      },
+      {
+        County: "Ingham",
+        Population: 281004
+      },
+      {
+        County: "Ionia",
+        Population: 50628
+      },
+      {
+        County: "Iosco",
+        Population: 21937
+      },
+      {
+        County: "Iron",
+        Population: 11170
+      },
+      {
+        County: "Isabella",
+        Population: 67869
+      },
+      {
+        County: "Jackson",
+        Population: 154071
+      },
+      {
+        County: "Kalamazoo",
+        Population: 254707
+      },
+      {
+        County: "Kalkaska",
+        Population: 17405
+      },
+      {
+        County: "Kent",
+        Population: 643235
+      },
+      {
+        County: "Keweenaw",
+        Population: 1938
+      },
+      {
+        County: "Lake",
+        Population: 8676
+      },
+      {
+        County: "Lapeer",
+        Population: 78551
+      },
+      {
+        County: "Leelanau",
+        Population: 15845
+      },
+      {
+        County: "Lenawee",
+        Population: 100787
+      },
+      {
+        County: "Livingston",
+        Population: 153736
+      },
+      {
+        County: "Luce",
+        Population: 6552
+      },
+      {
+        County: "Mackinac",
+        Population: 9520
+      },
+      {
+        County: "Macomb",
+        Population: 858605
+      },
+      {
+        County: "Manistee",
+        Population: 23074
+      },
+      {
+        County: "Marquette",
+        Population: 66474
+      },
+      {
+        County: "Mason",
+        Population: 27009
+      },
+      {
+        County: "Mecosta",
+        Population: 42392
+      },
+      {
+        County: "Menominee",
+        Population: 22930
+      },
+      {
+        County: "Midland",
+        Population: 80639
+      },
+      {
+        County: "Missaukee",
+        Population: 11992
+      },
+      {
+        County: "Monroe",
+        Population: 157204
+      },
+      {
+        County: "Montcalm",
+        Population: 59428
+      },
+      {
+        County: "Montmorency",
+        Population: 10601
+      },
+      {
+        County: "Muskegon",
+        Population: 172801
+      },
+      {
+        County: "Newaygo",
+        Population: 40720
+      },
+      {
+        County: "Oakland",
+        Population: 1225072
+      },
+      {
+        County: "Oceana",
+        Population: 26924
+      },
+      {
+        County: "Ogemaw",
+        Population: 17557
+      },
+      {
+        County: "Ontonagon",
+        Population: 5646
+      },
+      {
+        County: "Osceola",
+        Population: 24599
+      },
+      {
+        County: "Oscoda",
+        Population: 6378
+      },
+      {
+        County: "Otsego",
+        Population: 25772
+      },
+      {
+        County: "Ottawa",
+        Population: 283472
+      },
+      {
+        County: "Presque Isle",
+        Population: 8675
+      },
+      {
+        County: "Roscommon",
+        Population: 26182
+      },
+      {
+        County: "Saginaw",
+        Population: 177454
+      },
+      {
+        County: "Saint Clair",
+        Population: 156306
+      },
+      {
+        County: "Saint Joseph",
+        Population: 61060
+      },
+      {
+        County: "Sanilac",
+        Population: 36397
+      },
+      {
+        County: "Schoolcraft",
+        Population: 8417
+      },
+      {
+        County: "Shiawassee",
+        Population: 69226
+      },
+      {
+        County: "Tuscola",
+        Population: 55795
+      },
+      {
+        County: "Van Buren",
+        Population: 75517
+      },
+      {
+        County: "Washtenaw",
+        Population: 344486
+      },
+      {
+        County: "Wayne",
+        Population: 1767138
+      },
+      {
+        County: "Wexford",
+        Population: 14119
+      }
+    ];
+    let state = michigan.features;
+    console.log(countyPop);
+    for (let i in state) {
+      const p = countyPop
+        .filter(item => item.County === state[i].properties.name)
+        .map(item => item.Population);
+      const pop = p[0]; //!= undefined ? this.convertToNum(p[0]) : 0;
+      state[i].properties.density = pop;
+      updateState.push(state[i]);
+    }
+    this.updatedStateFeatures(updateState);
+    this.infoControl();
+    //$(".state").css("display", "none")
+    this.displayLegend("county");
+    /*})
+      .catch(error => console.error('Error:', error));*/
   }
   convertToNum(str) {
-    var n = str
-      .split(",")
-      .map(Number);
-    return parseInt(n.reduce((a, b) => a + b, ''));
+    var n = str.split(",").map(Number);
+    return parseInt(n.reduce((a, b) => a + b, ""));
   }
   updatedStateFeatures(data) {
-    console.log(data)
+    console.log(data);
     L.geoJSON(data, {
-      onEachFeature: (feature, layer) => this.onEachStateFeature(feature, layer),
+      onEachFeature: (feature, layer) =>
+        this.onEachStateFeature(feature, layer),
       style: feature => this.style(feature, "county")
     }).addTo(this.refs.map.leafletElement);
     this.addTileLayer();
   }
   markerIcon(content, latlng) {
-    return L.divIcon({className: "my-div-icon", html: String(content)});
+    return L.divIcon({ className: "my-div-icon", html: String(content) });
   }
   localFunc() {
     console.log("POP");
   }
   popContent(props) {
-    const {properties} = props;
+    const { properties } = props;
     const t = modalContent => {
-      this
-        .props
-        .handleShow(modalContent);
+      this.props.handleShow(modalContent);
     };
     L.thorsten = {};
     L.thorsten.t = t;
@@ -157,8 +495,7 @@ export default class MapView extends Component {
                         <div class="row pop-pad">
                             <h4>${properties.name}</h4>
                             <div class="pop-address">${properties.street}</div>
-                            <div class="pop-address">${properties.city}, ${
-    properties.state}, ${properties.zip}</div>
+                            <div class="pop-address">${properties.city}, ${properties.state}, ${properties.zip}</div>
                         </div>
                         <div class="row pop-address pop-pad">
                             <b>Flu Season</b>
@@ -179,103 +516,72 @@ export default class MapView extends Component {
   addPointers() {
     L.geoJSON(stores.features, {
       pointToLayer: (feature, latlng) => {
-        const {properties} = feature;
+        const { properties } = feature;
         let popContent = this.popContent(feature);
-        return L
-          .marker(latlng, {
+        return L.marker(latlng, {
           icon: this.markerIcon(feature.properties.id, latlng)
-        })
-          .bindPopup(popContent);
+        }).bindPopup(popContent);
       }
     }).addTo(this.refs.map.leafletElement);
     this.addTileLayer();
 
     let crumbs = this.state.crumbs;
     crumbs.push("County");
-    this.setState({crumbs: crumbs});
+    this.setState({ crumbs: crumbs });
     this.buildCrumbs();
   }
   zoomToFeature(feature, layer) {
-    this
-      .refs
-      .map
-      .leafletElement
-      .fitBounds(layer.getBounds());
-    this
-      .refs
-      .map
-      .leafletElement
-      .eachLayer(layer => {
-        this
-          .refs
-          .map
-          .leafletElement
-          .removeLayer(layer);
-      });
+    this.refs.map.leafletElement.fitBounds(layer.getBounds());
+    this.refs.map.leafletElement.eachLayer(layer => {
+      this.refs.map.leafletElement.removeLayer(layer);
+    });
     //console.log(feature)
     if (this.state.defaultView === "state") {
       this.addPointers();
-      this.setState({defaultView: "county"});
+      this.setState({ defaultView: "county" });
     }
     if (this.state.defaultView === "country") {
       this.addStateMap(feature.properties.name);
-      this.setState({defaultView: "state"});
+      this.setState({ defaultView: "state" });
     }
     info.update(feature, "county");
   }
   onEachFeature(feature, layer) {
     if (feature.properties.density != 0) {
       layer.on({
-        mouseover: this
-          .highlightFeature
-          .bind(this, feature, layer, "state"),
-        mouseout: this
-          .resetHighlight
-          .bind(this, feature, layer, "state"),
-        click: this
-          .zoomToFeature
-          .bind(this, feature, layer, "state")
+        mouseover: this.highlightFeature.bind(this, feature, layer, "state"),
+        mouseout: this.resetHighlight.bind(this, feature, layer, "state"),
+        click: this.zoomToFeature.bind(this, feature, layer, "state")
       });
     }
   }
   onEachStateFeature(feature, layer) {
     if (feature.properties.density != 0) {
       layer.on({
-        mouseover: this
-          .highlightFeature
-          .bind(this, feature, layer, "county"),
-        mouseout: this
-          .resetHighlight
-          .bind(this, feature, layer, "county")
+        mouseover: this.highlightFeature.bind(this, feature, layer, "county"),
+        mouseout: this.resetHighlight.bind(this, feature, layer, "county")
       });
     }
   }
   addTileLayer() {
-    L
-      .tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {})
-      .addTo(this.refs.map.leafletElement);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {}).addTo(
+      this.refs.map.leafletElement
+    );
   }
   buildCrumbs() {
     let crumbList = "";
-    this
-      .state
-      .crumbs
-      .forEach((item, index) => {
-        if (index > 0) {
-          crumbList += ` > ${item}`;
-        } else {
-          crumbList += item;
-        }
-      });
-    this
-      .props
-      .breadCrumbs(crumbList);
+    this.state.crumbs.forEach((item, index) => {
+      if (index > 0) {
+        crumbList += ` > ${item}`;
+      } else {
+        crumbList += item;
+      }
+    });
+    this.props.breadCrumbs(crumbList);
   }
   infoControl() {
-    info.onAdd = function () {
-      this._div = L
-        .DomUtil
-        .create("div", "info"); // create a div with a class "info"
+    info.onAdd = function() {
+      this._div = L.DomUtil.create("div", "info"); // create a div with a class "info"
       this.update();
       return this._div;
     };
@@ -283,36 +589,33 @@ export default class MapView extends Component {
     const v = this.state.defaultView;
     // method that we will use to update the control based on feature properties
     // passed
-    info.update = function (props, area = "state") {
-      console.log(props)
-      let header = area === "state" && v === "country"
-        ? "<h4>Michigan Population Data by County</h4>"
-        : "<h4>Michigan Population Data by County</h4>"
-      this._div.innerHTML = header + (props
-        ? "<b>" + props.name + "</b><br />" + props.density + " population"
-        : `Hover over a ${area}`);
-    }
+    info.update = function(props, area = "state") {
+      console.log(props);
+      let header =
+        area === "state" && v === "country"
+          ? "<h4>Michigan Population Data by County</h4>"
+          : "<h4>Michigan Population Data by County</h4>";
+      this._div.innerHTML =
+        header +
+        (props
+          ? "<b>" + props.name + "</b><br />" + props.density + " population"
+          : `Hover over a ${area}`);
+    };
 
     info.addTo(this.refs.map.leafletElement);
   }
   displayReset(area = "state") {
-    var legend = L.control({position: "topright"});
-    var div = L
-      .DomUtil
-      .create("div", "reset_ntm")
-    div.innerHTML += '<button>Reset </button>'
+    var legend = L.control({ position: "topright" });
+    var div = L.DomUtil.create("div", "reset_ntm");
+    div.innerHTML += "<button>Reset </button>";
     return div;
   }
   displayLegend(area) {
-    const times = area != "state"
-      ? 15
-      : 1;
-    const cls = "info legend " + area
-    var legend = L.control({position: "bottomright"});
+    const times = area != "state" ? 15 : 1;
+    const cls = "info legend " + area;
+    var legend = L.control({ position: "bottomright" });
     legend.onAdd = () => {
-      var div = L
-          .DomUtil
-          .create("div", cls),
+      var div = L.DomUtil.create("div", cls),
         grades = [
           0 * times,
           10 * times,
@@ -328,9 +631,12 @@ export default class MapView extends Component {
       // loop through our density intervals and generate a label with a colored square
       // for each interval
       for (var i = 0; i < grades.length; i++) {
-        div.innerHTML += '<i style="background:' + this.getColor(grades[i] + 1, area) + '"></i> ' + grades[i] + (grades[i + 1]
-          ? "&ndash;" + grades[i + 1] + "<br>"
-          : "+");
+        div.innerHTML +=
+          '<i style="background:' +
+          this.getColor(grades[i] + 1, area) +
+          '"></i> ' +
+          grades[i] +
+          (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
       }
 
       return div;
@@ -343,7 +649,12 @@ export default class MapView extends Component {
     return (
       <React.Fragment>
         <div>
-          <Map center={position} zoom={this.state.zoom} zoomControl={false} ref="map"/>
+          <Map
+            center={position}
+            zoom={this.state.zoom}
+            zoomControl={false}
+            ref="map"
+          />
         </div>
       </React.Fragment>
     );
