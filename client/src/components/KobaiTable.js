@@ -13,9 +13,7 @@ class KobaiTable extends Component {
     const loc =
       window.location.hostname === "localhost" ? "http://localhost:5000" : "";
     fetch(
-      `${loc}/api/ko-tab/ep/${this.refs.inputEndPoint.value}/akey/${
-        this.refs.inputApiKey.value
-      }`
+      `${loc}/api/ko-tab/ep/${this.refs.inputEndPoint.value}/akey/${this.refs.inputApiKey.value}`
     )
       .then(res => res.json())
       .then(res => {

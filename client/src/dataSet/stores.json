@@ -5,6 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": 1,
+        "store_id": 343,
         "name": "Local Pharmacy",
         "street": "4501 WOODWARD AVE",
         "city": "DETROIT",
@@ -21,6 +22,7 @@
       "type": "Feature",
       "properties": {
         "id": 2,
+        "store_id": 344,
         "name": "Total Pharmacy",
         "street": "6331 E JEFFERSON AVE",
         "city": "DETROIT",
@@ -37,6 +39,7 @@
       "type": "Feature",
       "properties": {
         "id": 3,
+        "store_id": 345,
         "name": "Super Pharmacy",
         "street": "13601 W WARREN AVE",
         "city": "DETROIT",
