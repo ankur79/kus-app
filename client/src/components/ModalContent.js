@@ -3,7 +3,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import ModalTable from "./ModalTable";
 import ModalChart from "./ModalChart";
 import ModalHighChart from "./ModalHighChart";
-import csvjson from "../dataSet/csvjson.json";
 import metrics from "../dataSet/metrics.json";
 class ModalContent extends React.Component {
   render() {
